@@ -28,6 +28,7 @@ To update:
 
 ## Configuration
 Hostname Prefix: The first 4-letters of the default prefix your WiZ connected brand gives to your hostname, in case of a WiZ connected device it's "wiz_". Didn't test this with devices from other brands. But you can specify multiple prefixes by deviding them with a comma, for instance "wiz-,phil"
+
 Subnet: Enter your subnet in het format "255.255.255.0/24" (in case of Class C subnet)
 
 ## Usage
