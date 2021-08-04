@@ -16,7 +16,7 @@ Python version 3.4 or higher required & Domoticz version 2021.1 or greater.
 To install:
 * Go in your Domoticz directory using a command line and open the plugins directory.
 * The plugin required Python library scapy ```sudo apt-get install python-scapy```
-* Run: ```git clone https://github.com/Xenomes/Domoticz-TUYA-Plugin.git```
+* Run: ```git clone https://github.com/sydspost/Domoticz-WiZ-connected-plugin.git```
 * Restart Domoticz. ```sudo systemctl restart domoticz```
 
 ## Updating
@@ -42,3 +42,5 @@ Devices detected are created in the 'Devices' tab, to use them you need to click
 | ----- | ---------- |
 | 1.0.0 | Initial upload version |
 
+## Remarks
+The plugin uses Arp ping to detect your WiZ connected devices on your local network, causing to enter your network card in promiscious mode when running. To prevent your syslog is running full with entering and leaving promiscious mode messages, put your network card permanent in promiscious mode with: sudo ifconfig eth0 promisc
