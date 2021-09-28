@@ -9,6 +9,10 @@ Controls WiZ connected devices your network (mainly on/off switches and Lights).
 * Allows controlling Dimmer/Cold-Warm for lights
 * When device operated by app, Domoticz is synchronized every 10 seconds
 
+## pre requirements
+
+* Up and running DNS server (with recursive lookup enabled)
+
 ## Installation
 
 Python version 3.4 or higher required & Domoticz version 2021.1 or greater.
