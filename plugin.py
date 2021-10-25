@@ -204,8 +204,8 @@ class BasePlugin:
     def onHeartbeat(self):
         Domoticz.Debug("onHeartbeat called time="+str(time.time()))
         # If it hasn't been at least 1 minute (corrected for ~2s runtime) since last update, skip it
-        # if time.time() - self.last_update < 58:
-        #     return
+        if time.time() - self.last_update < 58:
+            return
         self.startup = False
         # Create/Start update thread
         self.updateThread = threading.Thread(name="WiZUpdateThread", target=BasePlugin.handleThread, args=(self,))
