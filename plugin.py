@@ -90,6 +90,9 @@ class BasePlugin:
             if (deviceFound == False):
                 Domoticz.Device(Name=hostName, DeviceID=hostName,  Unit=len(Devices)+1, Type=241, Subtype=8, Switchtype=7, Image=0).Create()
 
+        # Create/Start update thread
+        self.updateThread = threading.Thread(name="WiZUpdateThread", target=BasePlugin.handleThread, args=(self,))
+        self.updateThread.start()
 
     def onStop(self):
         Domoticz.Debug("onStop called")
@@ -132,7 +135,7 @@ class BasePlugin:
             try:
                 sock.sendto(mJSON, (host, port))
  
-                received = sock.recv(1024)
+                received = sock.recv(1024).decode('utf-8')
             finally:
                 sock.close()
 
@@ -146,7 +149,7 @@ class BasePlugin:
             try:
                 sock.sendto(mJSON, (host, port))
 
-                received = sock.recv(1024)
+                received = sock.recv(1024).decode('utf-8')
             finally:
                 sock.close()
 
@@ -166,7 +169,7 @@ class BasePlugin:
             try:
                 sock.sendto(mJSON, (host, port))
 
-                received = sock.recv(1024)
+                received = sock.recv(1024).decode('utf-8')
             finally:
                 sock.close()
 
@@ -182,7 +185,7 @@ class BasePlugin:
             try:
                 sock.sendto(mJSON, (host, port))
 
-                received = sock.recv(1024)
+                received = sock.recv(1024).decode('utf-8')
             finally:
                 sock.close()
 
@@ -206,7 +209,7 @@ class BasePlugin:
         # If it hasn't been at least 1 minute (corrected for ~2s runtime) since last update, skip it
         if time.time() - self.last_update < 58:
             return
-        self.startup = False
+        
         # Create/Start update thread
         self.updateThread = threading.Thread(name="WiZUpdateThread", target=BasePlugin.handleThread, args=(self,))
         self.updateThread.start()
@@ -250,7 +253,7 @@ class BasePlugin:
                     try:
                         sock.sendto(mJSON, (host, port))
         
-                        received = sock.recv(1024)
+                        received = sock.recv(1024).decode('utf-8')
                     finally:
                         sock.close()
         
