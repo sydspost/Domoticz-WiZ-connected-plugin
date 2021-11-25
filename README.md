@@ -19,7 +19,7 @@ Python version 3.4 or higher required & Domoticz version 2021.1 or greater.
 
 To install:
 * Go in your Domoticz directory using a command line and open the plugins directory.
-* The plugin required Python library scapy ```sudo apt-get install python-scapy```
+* The plugin required Python library scapy ```sudo apt-get install python3-scapy```
 * Run: ```git clone https://github.com/sydspost/Domoticz-WiZ-connected-plugin.git```
 * Restart Domoticz. ```sudo systemctl restart domoticz```
 
